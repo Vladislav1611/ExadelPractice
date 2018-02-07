@@ -1,0 +1,11 @@
+commit 027e341a8375824db961f4bdde3f914fcde97e7a (HEAD -> master)
+Author: Vladislav Parchevscky <parchevscky16@gmail.com>
+Date:   Wed Feb 7 19:28:27 2018 +0300
+
+    add status.txt
+
+commit a7f282ae4abd0c6a9ef196c50d94f85c9249bd6f
+Author: Vladislav Parchevscky <parchevscky16@gmail.com>
+Date:   Wed Feb 7 19:21:06 2018 +0300
+
+    add.gitignore
