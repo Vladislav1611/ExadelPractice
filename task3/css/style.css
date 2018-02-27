@@ -16,15 +16,19 @@ footer{
 }
 .information
 {
-    margin: 40px 130px 10px 25px;
     float: left;
     font-size: 30px;
     color: blue;
 }
-.aboutSite
+.information li
 {
+    margin: 38px 0 15px 20px;
+    list-style-type: none;
 
 }
+
+
+
 .textSite
 {
     margin-top:25px ;
@@ -40,9 +44,7 @@ footer{
     float: right;
 }
 
-.logotip{
 
-}
 body{
     font-family: Aladin,sans-serif;
     background: #fafafa;
@@ -98,14 +100,13 @@ section{
 }
 .namesites{
     font-family: Aladin;
-    margin: 0 auto;
+    margin: 15px 0px 40px 480px ;
     font-size: 70px;
     color: dodgerblue;
     float: left;
 }
 .conteiner {
     height: 115px;
-
 }
 
 .hashtegs
@@ -129,7 +130,6 @@ section{
 {
     height: 50px;
     margin-bottom: 7px;
-
 }
 .photo
 {
@@ -139,13 +139,12 @@ section{
 .elements {
     height: 60px;
     margin-bottom: 10px;
-
 }
 .comment
 {
-    width: 796px;
-    font-size: 20px;
-
+    width: 790px;
+    font-size: 25px;
+    margin: 0 auto;
 }
 .userphoto
 {
@@ -191,10 +190,10 @@ section{
 .post{
     background: white;
     margin-top: 75px;
-    width: 799px;
+    width: 800px;
     height: 720px;
     margin-left: 40%;
-    margin-bottom: 170px;
+    margin-bottom: 190px;
     border:1px solid black;
 }
 .search
@@ -203,22 +202,33 @@ section{
     height: 900px;
     float: left;
     margin-top: 75px;
+    list-style-type: none;
 }
 .filters{
     font-size: 50px;
     font-family: Aladin sans-serif;
     margin: 50px 80px 20px 50px ;
 }
-.toolbar{
-    margin-top: 10px;
-    font-size: 30px;
-    margin-left: 20px;
+
+.toolbar li{
+    margin: 10px 0px 30px 40px;
+    list-style-type: none;
 }
-.battonsearsh{
+.battonsearsh {
     margin-top: 10px;
     font-size: 30px;
-    margin:20px 0px 0px 120px;
+    margin: 20px 0px 0px 120px;
+}
+.contact
+{
+    float: left;
+}
+.contact li
+{
+    margin: 15px;
+    list-style-type: none;
 
 }
+
 
 

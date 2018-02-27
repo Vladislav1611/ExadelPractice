@@ -19,27 +19,33 @@
             <div class="nickname">Nickname</div>
 
         </div>
-
     </div>
     <hr/>
     </div>
 
 </header>
+
+
 <section>
+    <aside>
     <div class="search">
         <div class="filters">Filters:</div>
-        <div >
-            <p><input type="search"  placeholder="Enter nickname" class="toolbar"></p>
-            <p><input type="search"  placeholder="Enter data" class="toolbar"></p>
-            <p><input type="search"  placeholder="Enter hashtags" class="toolbar"></p>
-            <p><input type="submit"  value="Search" class="battonsearsh"></p>
-        </div>
-
+        <ui  class="toolbar">
+            <li><input type="search"  placeholder="Enter nickname" style=" font-size: 30px" ></li>
+            <li><input type="search"  placeholder="Enter data" style=" font-size: 30px" ></li>
+            <li><input list="hashtags"  placeholder="Enter hashtags" style=" font-size: 30px"  >
+            <datalist id="hashtags">
+                <option value="#BSU"></option>
+                <option value="#Famcs"></option>
+                <option value="#Belarus"></option>
+                <option value="#Olympyc"></option>
+                <option value="#Winter"></option>
+            </datalist></li>
+            <li><input type="submit"  value="Search" class="battonsearsh" style=" font-size: 30px" ></li>
+        </ui>
     </div>
+    </aside>
 
-</section>
-
-<section>
     <div class="post">
         <div class="headPost">
             <img src="img/user%20.png" alt=""  class="userphoto">
@@ -58,11 +64,7 @@
             </div>
 
         </div>
-
-        <div class="comment">
-            <textarea name="text" id="" cols="65" rows="4"  placeholder="Comments" class="comment"></textarea>
-
-        </div>
+        <textarea name="text" cols="109" rows="4"  placeholder="Comments" class="comment" ></textarea>
 
     </div>
     <div class="post">
@@ -84,10 +86,8 @@
 
         </div>
 
-        <div class="comment">
-            <textarea name="text"  cols="65" rows="4"  placeholder="Comments" class="comment"></textarea>
+        <textarea name="text"  cols="109" rows="4"  placeholder="Comments" class="comment" ></textarea>
 
-        </div>
     </div>
     <div class="post">
         <div class="headPost">
@@ -107,45 +107,43 @@
             </div>
 
         </div>
-
-        <div class="comment">
-            <textarea name="text"  cols="65" rows="4"  placeholder="Comments" class="comment"></textarea>
-
-        </div>
+        <textarea name="text"  cols="109" rows="4"  placeholder="Comments" class="comment" ></textarea>
     </div>
 
 </section>
 
 <section>
-    <div>
         <img src="img/download.png" class="download">
-    <hr size="0px">
-    </div>
+        <hr/>
 </section>
 
 <footer>
-    <div>
-        <div class="icons">
-            <img src="img/png.png">
-            <p><img src="img/black-back-closed-envelope-shape.png"></p>
-            <p><img src="img/png%20(1).png"></p>
-        </div>
-        <div class="information">
-            <a href="https://goo.gl/maps/oXEvEGkrQnG2" class="" style="color: blue ;text-decoration: none " >10/2 Oktybrskaya st. , Belarus, Minsk</a>
-            <p> parchevsky16@gmail.com</p>
-            <p style="margin-top: 40px ">+375 (33) 395-23-35</p>
-        </div>
+
+            <ui class ="contact">
+                <li>
+                    <img src="img/png.png">
+                </li>
+                <li>
+                    <img src="img/black-back-closed-envelope-shape.png">
+                </li>
+                <li>
+                    <img src="img/png%20(1).png">
+                </li>
+
+            </ui>
+
+        <ui class="information">
+            <li><a href="https://goo.gl/maps/oXEvEGkrQnG2" class="" style="color: blue ;text-decoration: none " >10/2 Oktybrskaya st. , Belarus, Minsk</a></li>
+            <li> parchevsky16@gmail.com</li>
+            <li> +375 (33) 395-23-35</li>
+        </ui>
+
         <div class="namesites">Memories</div>
-        <div class="aboutSite">
+
             <div class="textSite">
                 About this site
             </div>
             <div class="p"><textarea name="" cols="70" rows="8" readonly ></textarea></div>
-        </div>
-
-
-
-    </div>
 
 </footer>
 
