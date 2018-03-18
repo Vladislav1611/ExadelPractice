@@ -26,23 +26,34 @@ footer{
     list-style-type: none;
 
 }
+.linkMaps{
+    color: blue ;
+    text-decoration: none ;
+}
 
-
-
+.Aboutsite
+{
+    margin-top: 0px;
+    margin-left: 300px;
+    margin-right: 6%;
+    float: right;
+}
+.Aboutsite p{
+    font-size: 20px;
+    font-family: Aladin ,sans-serif;
+    padding: 0;
+}
 .textSite
 {
     margin-top:25px ;
+    margin-bottom: 0px;
     margin-right: 10%;
     float: right;
     font-family: Aladin sans-serif;
     font-size: 40px;
+
 }
-.p {
-    margin-top: 10px;
-    margin-left: 300px;
-    margin-right: 2%;
-    float: right;
-}
+
 
 
 body{
@@ -51,7 +62,7 @@ body{
     padding: 0;
     margin: 0;
 }
-.logo
+#logo
 {
 
     height: auto;
@@ -66,7 +77,7 @@ body{
     float: right;
 
 }
-.nickname{
+#nickname{
     font-family: Aladin sans-serif;
     float: right;
     margin-left: 10px;
@@ -87,7 +98,7 @@ body{
 section{
     background: #fafafa;
 }
-.nick{
+#nick{
 
     float: right;
     margin-right: 3%;
@@ -145,8 +156,9 @@ section{
     width: 790px;
     font-size: 25px;
     margin: 0 auto;
+    resize: none
 }
-.userphoto
+.userPhoto
 {
     margin-top:3px;
     margin-left: 1%;
@@ -178,8 +190,8 @@ section{
 .setting
 {
     margin-top: 5px;
-    margin-left: 6%;
-    float: left;
+    margin-right: 20px;
+    float: right;
 }
 .delete
 {
@@ -196,14 +208,20 @@ section{
     margin-bottom: 190px;
     border:1px solid black;
 }
-.search
+#search
 {
+    z-index: 101;
+    position: relative;
     width: 450px;
     height: 900px;
     float: left;
     margin-top: 75px;
     list-style-type: none;
 }
+.buttonSearchName{
+    font-size: 30px;
+}
+
 .filters{
     font-size: 50px;
     font-family: Aladin sans-serif;
@@ -215,7 +233,6 @@ section{
     list-style-type: none;
 }
 .battonsearsh {
-    margin-top: 10px;
     font-size: 30px;
     margin: 20px 0px 0px 120px;
 }
