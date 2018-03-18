@@ -1,190 +1,172 @@
-'strict mode';
+"use strict";
 (function () {
-        var photoPosts = [
-            {
-                id: '1',
-                descriprion: 'test 1!!!',
-                createdAt: new Date('2018-02-10T23:00:00'),
-                author: 'Иванов Иван',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
-                hashTag: ["#Minsk", "#Famcs"],
-                like: ["Vlad", "Andrew"],
-            },
-            {
-                id: '2',
-                descriprion: 'test 2!!!',
-                createdAt: new Date('2018-02-24T23:00:00'),
-                author: '4 test',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
-                hashTag: ["#Minsk", "#Famcs"],
-                like: ["Vlad", "Andrew"],
-            },
-            {
-                id: '3',
-                descriprion: 'test 3!!!',
-                createdAt: new Date('2018-02-12T23:00:00'),
-                author: 'Иванов Иван',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
-                hashTag: ["#Minsk", "#Famcs"],
-                like: ["Vlad", "Andrew"],
-            },
-            {
-                id: '4',
-                descriprion: 'test 4!!!',
-                createdAt: new Date('2018-07-19T23:00:00'),
-                author: 'Иванов Иван',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
-                hashTag: ["#Minsk", "#Famcs"],
-                like: ["Vlad", "Ivan"],
-            },
-            {
-                id: '5',
-                descriprion: 'test 4!!!',
-                createdAt: new Date('2018-07-19T23:00:00'),
-                author: '4 test',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
-                hashTag: ["#Minsk", "#BNTY"],
-                like: ["Vlad", "Andrew"],
-            },
-            {
-                id: '6',
-                descriprion: 'test 4!!!',
-                createdAt: new Date('2018-07-19T23:00:00'),
-                author: 'Иванов Иван',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
-                hashTag: ["#Minsk", "#Moscow"],
-                like: ["Vlad", "Andrew"],
-            }
-        ];
+    var user ="vlad"
+    setProfile();
+    function showPhotoPost(Post) {
+        var posts =document.getElementById("posts");
+        var pos = document.createElement("div");
+        pos.className = "post";
 
-        function compareDate(a, b) {
-            return a.createdAt - b.createdAt;
+        var headPost = document.createElement("div");
+        headPost.className = "headPost";
+
+        var inconUser = document.createElement("img");
+        inconUser.className = "userPhoto";
+        inconUser.setAttribute("src","img/user .png");
+
+        var nickname = document.createElement('div');
+        nickname.className = 'username';
+        nickname.innerHTML = Post.author;
+
+        var data = document.createElement('div');
+        data.className = 'datapost';
+        data.innerHTML = formatDate(Post.createdAt);
+
+        headPost.appendChild(inconUser);
+        headPost.appendChild(nickname);
+        headPost.appendChild(data);
+
+        var photoArea = document.createElement("div");
+        photoArea.className = "photo";
+        var photo = document.createElement("img");
+        photo.setAttribute("src",Post.photoLink);
+        photoArea.appendChild(photo);
+
+        var elements = document.createElement("div");
+        elements.className = "elements";
+
+        var like = document.createElement("img");
+        like.className = "like";
+        like.setAttribute("src","img/heart-outline%20.png");
+        var hashtegs = document.createElement("div");
+        hashtegs.className = "hashtegs";
+        var hashTags = "";
+        Post.hashTag.forEach(function (item) {
+            hashTags+= item + " ";
+        });
+        hashtegs.innerHTML = hashTags;
+        if(user === Post.author)
+        {
+            var edit = document.createElement("img");
+            edit.className = "setting";
+            edit.setAttribute("src","img/setting.png");
+            var deletePost = document.createElement("img");
+            deletePost.className = "delete";
+            deletePost.setAttribute("src","img/waste-bin.png");
+            var comment = document.createElement("div");
+            comment.innerHTML = "<textarea name=\"text\"  cols=\"109\" rows=\"4\"  placeholder=\"comments\" class=\"comment\" >"+Post.description+"</textarea>";
+            elements.appendChild(deletePost);
+            elements.appendChild(edit);
+        }
+        else {
+        var comment = document.createElement("div");
+        comment.innerHTML = "<textarea name=\"text\" readonly  cols=\"109\" rows=\"4\"  placeholder=comments class=\"comment\" >"+Post.description+"</textarea>";
         }
 
-        function getPhotoPosts(skip, top, filterConfig) {
-            skip = skip || 0;
-            top = top || 0;
-            var newArr = [];
-            if (!filterConfig) {
-                return photoPosts.slice(skip, skip + top).length
-            }
-            else {
-                var result = photoPosts;
-                if (filterConfig.author) {
-                    result = result.filter(function (post) {
-                        return post.author === filterConfig.author;
-                    })
-                }
-                if (filterConfig.createdAt) {
-                    result = result.filter(function (post) {
-                        return post.createdAt === filterConfig.createdAt;
-                    })
-                }
-                if (filterConfig.hashTag) {
-                    result = result.filter(function (post) {
-                        for (let hashTag of post.hashTag) {
-                            for (let jtem of [].concat(filterConfig.hashTag)) {
-                                if (hashTag === jtem) {
-                                    return true;
-                                }
-                            }
-                        }
-                    });
-                }
-                return result.sort(compareDate).slice(skip, top);
-            }
+        elements.appendChild(like);
+        elements.appendChild(hashtegs);
+        pos.appendChild(headPost);
+        pos.appendChild(photoArea);
+        pos.appendChild(elements);
+        pos.appendChild(comment);
+        posts.appendChild(pos);
+        addFilterAuthor();
+        addFilterHashtags()
+    }
+    function setProfile() {
+        if(user)
+        {
+            var nick = document.getElementById("nick");
+            var nickname = document.getElementById("nickname");
+            nickname.innerHTML = user;
+            var photoUser = document.createElement("img");
+            photoUser.setAttribute("src","img/smiling-happy-emoticon-face.png");
+            photoUser.className = "profile";
+            var exit = document.createElement("img");
+            exit.setAttribute("src","img/forbidden-mark.png");
+            exit.className = "Exit";
+            nick.appendChild(photoUser);
+            nick.appendChild(exit);
+            nick.appendChild(nickname);
         }
+    }
+    function formatDate(date) {
 
-        function getPhotoPost(id) {
-            var found = photoPosts.find(function (element) {
-                return element.id === id;
-            })
-            return found;
-        }
+        var dd = date.getDate();
+        if (dd < 10) dd = '0' + dd;
 
-        function validatePhotoPost(post) {
-            var isValidate = true;
-            if (typeof post.id !== "string" || typeof post.description !== "string"
-                || typeof post.author !== "string" || typeof post.photoLink !== "string"
-                || !(post.createdAt instanceof Date) || !(post.hashTag instanceof Array)) {
-                return false
-            }
-            for (var i = 0; i < photoPosts.length; i++) {
-                if (photoPosts[i].id === post.id) {
-                    return false;
-                }
-            }
-            if (post.description.length === 0 || post.description.length >= 200) {
-                return false;
-            }
-            if (!post.createdAt || post.createdAt.toString() === "Invalid Date") {
-                return false;
-            }
-            if (post.author.length === 0 || !post.author) {
-                return false;
-            }
-            return true;
-        }
+        var mm = date.getMonth() + 1;
+        if (mm < 10) mm = '0' + mm;
 
-        function addPhotoPost(post) {
-            if (validatePhotoPost(post)) {
-                console.log(post)
-                if (!post.isDelete) {
-                    post.isDelete = false;
-                }
-                photoPosts[photoPosts.length] = post;
-                return true
-            }
-            return false
-        }
+        var yy = date.getFullYear() % 100;
+        if (yy < 10) yy = '0' + yy;
 
-        function removePhotoPost(id) {
-            let tmp = [];
-            for (let i = 0; i < photoPosts.length; i++) {
-                if (photoPosts[i].id !== id) {
-                    tmp.push(photoPosts[i]);
-                }
-            }
-            return tmp;
+        return dd + '.' + mm + '.' + yy;
+    }
+    function addFilterAuthor(){
+        var Author = document.getElementById("Author");
+        var nameAuthors = MyModyleFunction.getAuthor();
+        var formDatalist = "";
+        nameAuthors.forEach(function (item) {
+            formDatalist += "<option>" + item + "</option>";
+        });
+        Author.innerHTML = formDatalist;
+    }
+    function addFilterHashtags(){
+        var Hashtags = document.getElementById("hashtags");
+        var nameHashtags = MyModyleFunction.getHashtags();
+        var formDatalist = "";
+        nameHashtags.forEach(function (item) {
+            formDatalist += "<option>" + item + "</option>";
+        });
+        Hashtags.innerHTML = formDatalist;
+    }
+    function addPhotoPost(post) {
+        MyModyleFunction.addPhotoPost(post);
+        showPosts(0,10);
+    }
+    function removePhotoPost(id) {
+        MyModyleFunction.removePhotoPostLabeled(id);
+        showPosts(0,10);
+    }
+    function editPost(id,post) {
+        MyModyleFunction.editPhotoPost(id, post);
+        showPosts(0,10);
+    }
+    function showPosts(skip, top, filterConfig) {
+        update();
+        var photoPosts = MyModyleFunction.getPhotoPosts(skip,top,filterConfig);
+        for (var i = 0; i < photoPosts.length; i++) {
+            if(!photoPosts[i].isDelete)
+                showPhotoPost(photoPosts[i]);
         }
+    }
+    function update(){
+        var posts = document.getElementById("posts");
+        posts.innerHTML = "";
+    }
+    showPosts(0,4);
+    editPost("1", {description:"Тачка на прокачку"});
+    //removePhotoPost("3");
+    addPhotoPost({
+        id: '10',
+        description: 'Барселона - чемпион',
+        createdAt: new Date('2018-04-23T15:00:00'),
+        author: 'vlad',
+        photoLink: 'img/barcelona-fc-wallpaper-18.jpg',
+        hashTag: ["#Barca", "#Gold"],
+        like: ["Vlad", "Petya"],
+        isDelete: false
+    });
 
-        function editPhotoPost(id, object) {
-            for (let i = 0; i < photoPosts.length; i++) {
-                if (photoPosts[i].id === id) {
-                    var temp = photoPosts[i]
-                    if (object.photoLink !== undefined) {
-                        if (object.photoLink.length !== 0) {
-                            temp.photoLink = object.photoLink
-                        }
-                        else {
-                            return false;
-                        }
-                    }
-                    if (object.description !== undefined) {
-                        if (object.description.length === 0 || object.description.length >= 200) {
-                            return false;
-                        }
-                        else {
-                            temp.description = object.description
-                        }
-                    }
-                    if (object.hashTag !== undefined) {
-                        if (object.hashTag.length > 0) {
-                            temp.hashTag = object.hashTag
-                        }
-                        else {
-                            return false;
-                        }
-                    }
-                    photoPosts[i] = temp
-                    return true;
-                }
-            }
-        }
+return{
+    showPhotoPost,
+    showPosts,
+    editPost,
+    removePhotoPostLabeled,
+    addPhotoPost,
+    addFilterHashtags,
+    addFilterAuthor
+};
+
 })();
-
-
-
-
-
-
