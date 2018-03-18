@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var MyModyleFunction = (function () {
 
     var photoPosts =  [
@@ -8,8 +8,8 @@ var MyModyleFunction = (function () {
             createdAt: new Date('2018-09-23T23:00:00'),
             author: 'Petya',
             photoLink: 'img/1_8572f3cbc07c3a820d74b93b223.jpg',
-            hashTag: ["#BMV","#GroveStreet"],
-            like: ["Dima", "IVAN"],
+            hashTag: ['#BMV','#GroveStreet'],
+            like: ['Dima','IVAN'],
             isDelete: false
         },
         {
@@ -18,8 +18,8 @@ var MyModyleFunction = (function () {
             createdAt: new Date('2018-10-23T17:00:00'),
             author: 'vlad',
             photoLink: 'img/2f69edbfa54ce6d27b9ae403456a38d1.jpg',
-            hashTag: ["#Winter", "#friends","#funny"],
-            like: ["Dima", "IVAN"],
+            hashTag: ['#Winter', '#friends','#funny'],
+            like: ['Dima', 'IVAN'],
             isDelete: false
         },
         {
@@ -28,8 +28,8 @@ var MyModyleFunction = (function () {
             createdAt: new Date('2018-04-23T15:00:00'),
             author: 'Vasya',
             photoLink: 'img/727113a8b51a0fb366e88f870f2d816b.jpg',
-            hashTag: ["#FutBall", "#Ronaldo","Street"],
-            like: ["Dima", "IVAN"],
+            hashTag: ['#FutBall', '#Ronaldo','#Street'],
+            like: ['Dima', 'IVAN'],
             isDelete: false
         },
 
@@ -117,8 +117,8 @@ var MyModyleFunction = (function () {
     }
     function validatePhotoPost(post,isForAddPost) {
         var isValidate = true;
-        if (typeof post.id !== "string" || typeof post.description !== "string"
-            || typeof post.author !== "string" || typeof post.photoLink !== "string"
+        if (typeof post.id !== 'string' || typeof post.description !== 'string'
+            || typeof post.author !== 'string' || typeof post.photoLink !== 'string'
             || !(post.createdAt instanceof Date) || !(post.hashTag instanceof Array)) {
             return false
         }
@@ -133,7 +133,7 @@ var MyModyleFunction = (function () {
         if(post.photoLink.length === 0){
             return false;
         }
-        if (!post.createdAt || post.createdAt.toString() === "Invalid Date") {
+        if (!post.createdAt || post.createdAt.toString() === 'Invalid Date') {
             return false;
         }
         if (post.author.length === 0 || !post.author) {
