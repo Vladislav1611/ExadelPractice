@@ -2,64 +2,64 @@
 var functionDOM = (function () {
     var user ='vlad'
     setProfile();
-    function showPhotoPost(Post) {
+    function showPhotoPost(userPost) {
         debugger;
-        var posts =document.getElementById('posts');
-        var post = document.createElement('div');
+        let posts =document.getElementById('posts');
+        let post = document.createElement('div');
         post.className = 'post';
 
-        var headPost = document.createElement('div');
+        let headPost = document.createElement('div');
         headPost.className = 'headPost';
 
-        var inconUser = document.createElement('img');
-        inconUser.className = 'userPhoto';
-        inconUser.setAttribute('src','img/user .png');
+        let inconUser = document.createElement("a");
+        inconUser.setAttribute("href","#");
+        inconUser.innerHTML="<img src=\"img/user%20.png\" alt=\"\"  class=\"userPhoto\">";
 
-        var nickname = document.createElement('div');
+        let nickname = document.createElement('div');
         nickname.className = 'username';
-        nickname.textContent = Post.author;
+        nickname.textContent = userPost.author;
 
-        var data = document.createElement('div');
+        let data = document.createElement('div');
         data.className = 'datapost';
-        data.textContent = formatDate(Post.createdAt);
+        data.textContent = formatDate(userPost.createdAt);
 
         headPost.appendChild(inconUser);
         headPost.appendChild(nickname);
         headPost.appendChild(data);
 
-        var photoArea = document.createElement('div');
+        let photoArea = document.createElement('div');
         photoArea.className = 'photo';
-        var photo = document.createElement('img');
-        photo.setAttribute('src',Post.photoLink);
+        let photo = document.createElement('img');
+        photo.setAttribute('src',userPost.photoLink);
         photoArea.appendChild(photo);
 
-        var elements = document.createElement('div');
+        let elements = document.createElement('div');
         elements.className = 'elements';
 
-        var like = document.createElement('img');
-        like.className = 'like';
-        like.setAttribute('src','img/heart-outline%20.png');
-        var hashtegs = document.createElement('div');
+        let like = document.createElement('a');
+        like.setAttribute('href','#');
+        like.innerHTML = "<img src=\"img/heart-outline%20.png\"  class=\"like\">";
+        let hashtegs = document.createElement('div');
         hashtegs.className = 'hashtegs';
-        var hashTags = '';
-        hashTags = Post.hashTag.join('');
+        let hashTags = '';
+        hashTags = userPost.hashTag.join('');
         hashtegs.innerHTML  = hashTags;
-        if(user === Post.author)
+        if(user === userPost.author)
         {
-            var edit = document.createElement('img');
-            edit.className = 'setting';
-            edit.setAttribute('src','img/setting.png');
-            var deletePost = document.createElement('img');
-            deletePost.className = 'delete';
-            deletePost.setAttribute('src','img/waste-bin.png');
+            let edit = document.createElement('a');
+            edit.setAttribute('href','#');
+            edit.innerHTML = "<img src=\"img/setting.png\" class=\"setting\">";
+            let deletePost = document.createElement('a');
+            deletePost.setAttribute('href','#');
+            deletePost.innerHTML = "<img src=\"img/waste-bin.png.\" class=\"delete\">";
             var comment = document.createElement('div');
-            comment.innerHTML  = '<textarea name=\'text\'  cols=\'109\' rows=\'4\'  placeholder=\'comments\' class=\'comment\' >'+Post.description+'</textarea>';
+            comment.innerHTML  = "<textarea name=\'text\'  cols=\'109\' rows=\'4\'  placeholder=\'comments\' class=\'comment\' >"+userPost.description+"</textarea>";
             elements.appendChild(deletePost);
             elements.appendChild(edit);
         }
         else {
-        var comment = document.createElement('div');
-        comment.innerHTML  = '<textarea name=\'text\' readonly  cols=\'109\' rows=\'4\'  placeholder=comments class=\'comment\' >'+Post.description+'</textarea>';
+             comment = document.createElement('div');
+        comment.innerHTML  = "<textarea name=\'text\' readonly  cols=\'109\' rows=\'4\'  placeholder=comments class=\'comment\' >"+userPost.description+"</textarea>";
         }
         elements.appendChild(like);
         elements.appendChild(hashtegs);
@@ -73,49 +73,50 @@ var functionDOM = (function () {
     function setProfile() {
         if(user)
         {
-            var nick = document.getElementById('nick');
-            var nickname = document.getElementById('nickname');
+
+
+            let nick = document.getElementById('nick');
+            let nickname = document.getElementById('nickname');
             nickname.textContent  = user;
-            var photoUser = document.createElement('img');
-            photoUser.setAttribute('src','img/smiling-happy-emoticon-face.png');
-            photoUser.className = 'profile';
-            var exit = document.createElement('img');
-            exit.setAttribute('src','img/forbidden-mark.png');
-            exit.className = 'Exit';
+            let photoUser = document.createElement('a');
+            photoUser.setAttribute('href','#');
+            photoUser.innerHTML = "<img src=\"img/smiling-happy-emoticon-face.png\" alt=\"Memories\" class=\"profile\">";
+            let exit = document.createElement("a");
+            exit.setAttribute('href','#');
+            exit.innerHTML = "<img src=\"img/forbidden-mark.png\" alt=\"Exit\" class=\"Exit\">";
             nick.appendChild(photoUser);
             nick.appendChild(exit);
             nick.appendChild(nickname);
             addFilterAuthor();
             addFilterHashtags();
-
         }
     }
     function formatDate(date) {
 
-        var dd = date.getDate();
+        let dd = date.getDate();
         if (dd < 10) dd = '0' + dd;
 
-        var mm = date.getMonth() + 1;
+        let mm = date.getMonth() + 1;
         if (mm < 10) mm = '0' + mm;
 
-        var yy = date.getFullYear() % 100;
+        let yy = date.getFullYear() % 100;
         if (yy < 10) yy = '0' + yy;
 
         return dd + '.' + mm + '.' + yy;
     }
     function addFilterAuthor(){
-        var Author = document.getElementById('Author');
-        var nameAuthors = MyModyleFunction.getAuthor();
-        var formDatalist = '';
+        let Author = document.getElementById('Author');
+        let nameAuthors = MyModyleFunction.getAuthors();
+        let formDatalist = '';
         nameAuthors.forEach(function (item) {
             formDatalist += '<option>' + item + '</option>';
         });
         Author.innerHTML = formDatalist;
     }
     function addFilterHashtags(){
-        var Hashtags = document.getElementById('hashtags');
-        var nameHashtags = MyModyleFunction.getHashtags();
-        var formDatalist = '';
+        let Hashtags = document.getElementById('hashtags');
+        let nameHashtags = MyModyleFunction.getHashtags();
+        let formDatalist = '';
         nameHashtags.forEach(function (item) {
             formDatalist += '<option>' + item + '</option>';
         });
@@ -134,11 +135,10 @@ var functionDOM = (function () {
         showPosts(0,10);
     }
     function showPosts(skip, top, filterConfig) {
-        var posts = document.getElementById('posts');
+        let posts = document.getElementById('posts');
         posts.textContent  = '';
-        posts.innerHTML = '';
-        var photoPosts = MyModyleFunction.getPhotoPosts(skip,top,filterConfig);
-        for (var i = 0; i < photoPosts.length; i++) {
+        let photoPosts = MyModyleFunction.getPhotoPosts(skip,top,filterConfig);
+        for (let i = 0; i < photoPosts.length; i++) {
             if(!photoPosts[i].isDelete)
                 showPhotoPost(photoPosts[i]);
         }

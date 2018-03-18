@@ -18,7 +18,7 @@
                 <div id="nickname"></div>
             </div>
         </div>
-        <hr/>
+        <border/>
     </div>
 
 </header>
@@ -27,10 +27,10 @@
     <aside id="search">
             <div class="filters">Filters:</div>
             <ui  class="toolbar">
-                <li><input type="search" list = "Author"  placeholder="Enter nickname" style=" font-size: 30px" >
+                <li><input type="search" name="AuthorSearsh" list = "Author"  placeholder="Enter nickname" class="buttonSearchName" >
                 <datalist id="Author"></datalist></li>
-                <li><input type="search"  placeholder="Enter data(dd/mm/yy)" style=" font-size: 30px" ></li>
-                <li><input type="hashtagInput" list = "hashtags" placeholder="Enter hashtags" style=" font-size: 30px"  >
+                <li><input type="search" name="DateSearsh"   placeholder="Enter data(dd/mm/yy)" style=" font-size: 30px" ></li>
+                <li><input type="search" name="HashtagsSearsh"  list = "hashtags" placeholder="Enter hashtags" style=" font-size: 30px"  >
                     <datalist id="hashtags">
                     </datalist></li>
                 <li><input type="submit"  value="Search" class="battonsearsh" style=" font-size: 30px" ></li>
@@ -38,14 +38,14 @@
     </aside>
 
     <section id ="posts" >
-
     </section>
+    <a href="#"><img src="img/download.png" class="download"></a>
+    <border/>
 
 </main>
-<section>
-    <img src="img/download.png" class="download">
-    <hr/>
-</section>
+
+
+
 
 <footer>
 
@@ -63,7 +63,7 @@
     </ui>
 
     <ui class="information">
-        <li><a href="https://goo.gl/maps/oXEvEGkrQnG2" class="" style="color: blue ;text-decoration: none " >10/2 Oktybrskaya st. , Belarus, Minsk</a></li>
+        <li><a href="https://goo.gl/maps/oXEvEGkrQnG2" class="linkMaps">10/2 Oktybrskaya st. , Belarus, Minsk</a></li>
         <li> parchevsky16@gmail.com</li>
         <li> +375 (33) 395-23-35</li>
     </ui>
@@ -73,7 +73,7 @@
     <div class="textSite">
         About this site
     </div>
-    <div class="Aboutsite"><textarea name="" cols="70" rows="8" readonly class="p" ></textarea></div>
+    <div class="Aboutsite"><p>Здесь хранятся ваши воспоминания</p></div>
 
 </footer>
 

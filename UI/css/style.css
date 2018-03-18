@@ -26,16 +26,23 @@ footer{
     list-style-type: none;
 
 }
-
+.linkMaps{
+    color: blue ;
+    text-decoration: none ;
+}
 
 .Aboutsite
 {
     margin-top: 0px;
     margin-left: 300px;
-    margin-right: 2%;
+    margin-right: 6%;
     float: right;
 }
-
+.Aboutsite p{
+    font-size: 20px;
+    font-family: Aladin ,sans-serif;
+    padding: 0;
+}
 .textSite
 {
     margin-top:25px ;
@@ -46,10 +53,7 @@ footer{
     font-size: 40px;
 
 }
-.p {
 
-    resize: none
-}
 
 
 body{
@@ -206,12 +210,18 @@ section{
 }
 #search
 {
+    z-index: 101;
+    position: relative;
     width: 450px;
     height: 900px;
     float: left;
     margin-top: 75px;
     list-style-type: none;
 }
+.buttonSearchName{
+    font-size: 30px;
+}
+
 .filters{
     font-size: 50px;
     font-family: Aladin sans-serif;
@@ -223,7 +233,6 @@ section{
     list-style-type: none;
 }
 .battonsearsh {
-    margin-top: 10px;
     font-size: 30px;
     margin: 20px 0px 0px 120px;
 }

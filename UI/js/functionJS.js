@@ -41,8 +41,8 @@ var MyModyleFunction = (function () {
     }
 
 
-    function getAuthor(){
-        var name = [];
+    function getAuthors(){
+        let name = [];
         photoPosts.forEach(function(item){
             if (!item.isDelete) {
                 name.push(item.author);
@@ -61,7 +61,7 @@ var MyModyleFunction = (function () {
     }
 
     function getHashtags() {
-        var hashtags = [];
+        let hashtags = [];
         photoPosts.forEach(function (itemPost) {
             if(!itemPost.isDelete) {
                 itemPost.hashTag.forEach(function (itemHashtag) {
@@ -75,16 +75,15 @@ var MyModyleFunction = (function () {
     function getPhotoPosts(skip, top, filterConfig) {
         skip = skip || 0;
         top = top || 0;
-        var min = top;
+        let min = top;
         if(min > photoPosts.length){
             min = photoPosts.length;
         }
-        var newArr = [];
         if (!filterConfig) {
             return photoPosts.sort(compareDate).slice(skip,min);
         }
         else {
-            var result = photoPosts;
+            let result = photoPosts;
             if (filterConfig.author) {
                 result = result.filter(function (post) {
                     return post.author === filterConfig.author;
@@ -110,13 +109,12 @@ var MyModyleFunction = (function () {
         }
     }
     function getPhotoPost(id) {
-        var found = photoPosts.find(function (element) {
+        let found = photoPosts.find(function (element) {
             return element.id === id;
         });
         return found;
     }
     function validatePhotoPost(post,isForAddPost) {
-        var isValidate = true;
         if (typeof post.id !== 'string' || typeof post.description !== 'string'
             || typeof post.author !== 'string' || typeof post.photoLink !== 'string'
             || !(post.createdAt instanceof Date) || !(post.hashTag instanceof Array)) {
@@ -150,24 +148,26 @@ var MyModyleFunction = (function () {
         return false;
     }
     function removePhotoPostLabeled(id) {
-        var found = photoPosts.findIndex(i => i.id === id);
-        photoPosts[found].isDelete = true;
+        let post = photoPosts.find(i => i.id === id);
+        if(post){
+            post.isDelete = true;
+        }
     }
     function editPhotoPost(id, object) {
-        var found = photoPosts.findIndex(i => i.id === id);
-        if(found!== -1){
+        let post = photoPosts.find(post => post.id === id);
+        if(post && post.isDelete === false){
             if(object.description && object.description){
-                photoPosts[found].description = object.description;
+                post.description = object.description;
             }
             if(object.hashTag && object.hashTag.length!==0){
-                photoPosts[found].hashTag = [];
-                photoPosts[found].hashTag.concat(object.hashTag);
+                post.hashTag = [].concat(object.hashTag);
             }
-            if(object.photoLink && object.photoLink!==0) {
-                photoPosts[found].photoLink = object.photoLink;
+            if(object.photoLink && object.photoLink>0) {
+                post.photoLink = object.photoLink;
             }
         }
     }
+
 
     return {
         getPhotoPosts,
@@ -176,7 +176,7 @@ var MyModyleFunction = (function () {
         addPhotoPost,
         editPhotoPost,
         removePhotoPostLabeled,
-        getAuthor,
+        getAuthors,
         getHashtags
     }
 }());
