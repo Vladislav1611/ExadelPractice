@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moment</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header >
+    <div class="logotip">
+        <div id="conteiner">
+            <img src="img/logo.jpg" alt="Memories" id="logo">
+            <div class="title">
+                Memories
+            </div>
+            <div id="nick">
+                <div id="nickname"></div>
+            </div>
+        </div>
+        <border/>
+    </div>
+
+</header>
+
+<main>
+    <aside id="search">
+            <div class="filters">Filters:</div>
+            <ui  class="toolbar">
+                <li><input type="search" name="AuthorSearsh" list = "Author"  placeholder="Enter nickname" class="buttonSearchName" >
+                <datalist id="Author"></datalist></li>
+                <li><input type="search" name="DateSearsh"   placeholder="Enter data(dd/mm/yy)" style=" font-size: 30px" ></li>
+                <li><input type="search" name="HashtagsSearsh"  list = "hashtags" placeholder="Enter hashtags" style=" font-size: 30px"  >
+                    <datalist id="hashtags">
+                    </datalist></li>
+                <li><input type="submit"  value="Search" class="battonsearsh" style=" font-size: 30px" ></li>
+            </ui>
+    </aside>
+
+    <section id ="posts" >
+    </section>
+    <a href="#"><img src="img/download.png" class="download"></a>
+    <border/>
+
+</main>
+
+
+
+
+<footer>
+
+    <ui class ="contact">
+        <li>
+            <img src="img/png.png">
+        </li>
+        <li>
+            <img src="img/black-back-closed-envelope-shape.png">
+        </li>
+        <li>
+            <img src="img/png%20(1).png">
+        </li>
+
+    </ui>
+
+    <ui class="information">
+        <li><a href="https://goo.gl/maps/oXEvEGkrQnG2" class="linkMaps">10/2 Oktybrskaya st. , Belarus, Minsk</a></li>
+        <li> parchevsky16@gmail.com</li>
+        <li> +375 (33) 395-23-35</li>
+    </ui>
+
+    <div class="namesites">Memories</div>
+
+    <div class="textSite">
+        About this site
+    </div>
+    <div class="Aboutsite"><p>Здесь хранятся ваши воспоминания</p></div>
+
+</footer>
+<script src="js/functionJS.js"></script>
+<script type="text/javascript">
+   var  photoPosts = {
+       "posts":[
+    {
+        "id": "1",
+        "description": "Главный на дворе",
+        "createdAt": "new Date('2018-09-23T23:00:00')",
+        "author": "Petya",
+        "photoLink": "img/1_8572f3cbc07c3a820d74b93b223.jpg",
+        "hashTag": ["#BMV","#GroveStreet"],
+        "like": ["Dima","IVAN"],
+        "isDelete": false
+    },
+    {
+        "id": 2,
+        "description": "Зимняя пора",
+        "createdAt": "new Date('2018-10-23T17:00:00')",
+        "author": "vlad",
+        "photoLink": "img/2f69edbfa54ce6d27b9ae403456a38d1.jpg",
+        "hashTag": ["#Winter", "#friends","#funny"],
+        "like": ["Dima", "IVAN"],
+        "isDelete": false
+    },
+    {
+        "id":3,
+        "description": "Звезды вырастают с дворового футбола!!!",
+        "createdAt": "new Date('2018-04-23T15:00:00')",
+        "author": "Vasya",
+        "photoLink": "img/727113a8b51a0fb366e88f870f2d816b.jpg",
+        "hashTag": ["#FutBall", "#Ronaldo","#Street"],
+        "like": ["Dima", "IVAN"],
+        "isDelete": false
+    }
+    ]
+   }
+</script>
+<script type="text/javascript" src="js/main.js" ></script>
+
+</body>
+</html>
